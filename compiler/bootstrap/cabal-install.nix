@@ -73,7 +73,7 @@ in stdenv.mkDerivation ({
   }
   mkdir $out
   ghc-pkg init $out/packages.conf.d
-  EXTRA_CONFIGURE_OPTS="" SCOPE_OF_INSTALLATION="--package-db=$out/packages.conf.d" PREFIX="$out" ./bootstrap.sh --no-doc -j
+  EXTRA_CONFIGURE_OPTS="" SCOPE_OF_INSTALLATION="--package-db=$out/packages.conf.d" PREFIX="$out" ./bootstrap.sh --no-doc
   '';
 
   installPhase = ''

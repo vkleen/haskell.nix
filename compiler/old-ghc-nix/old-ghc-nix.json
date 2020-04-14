@@ -1,7 +1,9 @@
 {
-  "url": "https://github.com/angerman/old-ghc-nix",
-  "rev": "bf640c1a3f55203bb7492a366c6492ff3c211332",
-  "date": "2020-02-27T19:53:36+08:00",
-  "sha256": "050g06911rpmvn66y5lmnszswz17flw3b979imdchc2apji6a1sm",
-  "fetchSubmodules": false
+  "url": "https://github.com/vkleen/old-ghc-nix",
+  "rev": "922cb5f1bfffa578db8dfb36bc563002895c1ade",
+  "date": "2020-04-15T04:46:42+00:00",
+  "sha256": "1k6da39kddis1krx3xj0h25w4bln9327byji0ixiqlh997rn9vx0",
+  "fetchSubmodules": false,
+  "deepClone": false,
+  "leaveDotGit": false
 }

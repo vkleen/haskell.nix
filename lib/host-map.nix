@@ -4,7 +4,7 @@ stdenv:
 with { isLinux = false; isWindows = false; isDarwin = false; isFreeBSD = false;
        isOpenBSD = false; isNetBSD = false; isiOS = false; isAndroid = false;
        isGhcjs = false; isAsterius = false; isHurd = false;
-       isx86 = false; isPowerPC = false; isAarch32 = false; isAarch64 = false;
+       isx86 = false; isPower = false; isAarch32 = false; isAarch64 = false;
        isMips = false; isWasm = false; isJavaScript = false;
        is32bit = false; is64bit = false; };
 with stdenv.hostPlatform; {
@@ -22,8 +22,8 @@ with stdenv.hostPlatform; {
        throw "Unknown OS";
   arch = if isx86     && is32bit then "I386"    else
          if isx86     && is64bit then "X86_64"  else
-         if isPowerPC && is32bit then "PPC"     else
-         if isPowerPC && is64bit then "PPC64"   else
+         if isPower   && is32bit then "PPC"     else
+         if isPower   && is64bit then "PPC64"   else
          if isAarch32            then "Arm"     else
          if isAarch64            then "Aarch64" else
          if isMips               then "Mips"    else
