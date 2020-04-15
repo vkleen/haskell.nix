@@ -47,6 +47,19 @@ writeShellScriptBin "update-nix-tools" ''
 
    mv pkgs.nix pkgs-8.4.4.nix
 
+   # Build for ghc-8.6.5
+   echo "--> Updating cabal index..."
+   cabal v2-update -v0
+   echo "--> Configuring nix-tools for ${haskell-nix.compiler.ghc865.name}..."
+   cabal v2-configure -w ${getBin haskell-nix.compiler.ghc865}/bin/ghc -v0
+   echo "--> Running plan-to-nix for ${haskell-nix.compiler.ghc865.name}..."
+   plan-to-nix -o . --plan-json=$(find . -name "plan.json")
+
+   rm cabal.project.local
+   rm -fR dist-newstyle
+
+   mv pkgs.nix pkgs-8.6.5.nix
+
    # build for the current ghc in haskell.nix
    echo "--> Configuring nix-tools for ${haskell-nix.ghc.name}..."
    cabal v2-configure -w ${getBin haskell-nix.ghc}/bin/ghc -v0
